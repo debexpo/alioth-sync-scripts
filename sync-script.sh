@@ -32,7 +32,7 @@ cd ~/debexpo  # This is where the code is.
 git fetch -q origin  # This should fetch from github.
 
 # We attempt to push, filtering out a particular error from Alioth's commit hooks.
-git push --quiet alioth origin/master:master | ( grep -v dam.homelinux || true )
+git push --quiet alioth origin/master:master 2>&1 | ( grep -v dam.homelinux || true )
 
 # If that didn't work, then we let the shell exit 1,
 # and print an error.
